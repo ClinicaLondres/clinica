@@ -56,9 +56,9 @@ function Navbar() {
           <NavItem><StyledLink to="/">Home</StyledLink></NavItem>
           <NavItem><StyledLink to="/about">About</StyledLink></NavItem>
           <NavItem><StyledLink to="/services">Services</StyledLink></NavItem>
+          <NavItem><StyledLink to="/blog">Blog</StyledLink></NavItem>
           <NavItem><StyledLink to="/contact">Contact</StyledLink></NavItem>
         </NavList>
-
         <Spacer /> 
       </NavContainer>
     </Nav>

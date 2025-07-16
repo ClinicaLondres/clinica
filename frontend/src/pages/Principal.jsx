@@ -90,6 +90,8 @@ const BannerImage = styled.img`
   height: 100%;
   object-fit: cover;
 `;
+
+
 function Inicio() {
   return (
     <Container>
