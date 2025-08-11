@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import { FaCalendarAlt, FaUsers, FaStethoscope, FaMapMarkerAlt, FaHeartbeat, FaBrain, FaPlus, FaCut } from 'react-icons/fa';
 
-// Paleta de colores consistente
 const theme = {
   primary: '#005792',
   secondary: '#00a8a8',
@@ -11,35 +12,21 @@ const theme = {
   white: '#ffffff',
 };
 
-// --- Estilos Generales ---
 const Container = styled.div`
   background-color: ${theme.background};
   font-family: 'Roboto', sans-serif;
 `;
 
-const Section = styled.section`
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const SectionHeading = styled.h2`
-  text-align: center;
-  font-size: 2.4rem;
-  color: ${theme.textDark};
-  margin-bottom: 60px;
-  font-weight: 600;
-`;
-
-// --- Estilos del Hero Banner ---
 const BannerWrapper = styled.div`
   width: 100%;
-  height: 450px;
+  min-height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 20px;
 `;
 
 const BannerImage = styled.img`
@@ -82,88 +69,220 @@ const SubText = styled.p`
   font-weight: 300;
 `;
 
-const CTAButton = styled(Link)`
-  background-color: ${theme.secondary};
-  color: white;
-  padding: 15px 35px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-
-  &:hover {
-    background-color: #007c7c;
-    transform: translateY(-3px);
-  }
-`;
-
-// --- Estilos de la Sección de Servicios ---
-const ServicesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+const IconNavWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   gap: 30px;
+  margin-top: 50px;
+  position: relative;
+  z-index: 3;
+  flex-wrap: wrap;
 `;
 
-const ServiceCard = styled.div`
-  background: ${theme.white};
-  border-radius: 10px;
-  border-top: 4px solid ${theme.secondary};
-  padding: 30px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left;
+const IconNavLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${theme.white};
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 150px;
+  transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
   }
 `;
 
-const ServiceTitle = styled.h3`
-  font-size: 1.2rem;
+const IconCircle = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid ${theme.secondary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: ${theme.secondary};
+`;
+
+const LanguageSwitcher = styled.div`
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+
+    button {
+        background: transparent;
+        border: 1px solid white;
+        color: white;
+        padding: 5px 10px;
+        margin-left: 5px;
+        cursor: pointer;
+        border-radius: 3px;
+        font-weight: 600;
+
+        &.active {
+            background: white;
+            color: ${theme.primary};
+        }
+    }
+`;
+
+const SpecialtiesSection = styled.section`
+  padding: 80px 20px;
+  background-color: ${theme.white};
+`;
+
+const SectionTitle = styled.h2`
+  text-align: center;
+  font-size: 2.4rem;
+  color: ${theme.textDark};
+  margin-bottom: 50px;
   font-weight: 600;
-  color: ${theme.primary};
+`;
+
+const SpecialtiesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px;
+  max-width: 800px; 
+  margin: 0 auto;
+`;
+
+const SpecialtyCard = styled(Link)`
+  position: relative;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  text-decoration: none;
+  color: ${theme.white};
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+`;
+
+const CardBackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.3s ease;
+
+  ${SpecialtyCard}:hover & {
+    transform: scale(1.1);
+  }
+`;
+
+const CardOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+  z-index: 2;
+`;
+
+const CardContent = styled.div`
+  position: relative;
+  z-index: 3;
+`;
+
+const CardIcon = styled.div`
+  font-size: 2.5rem;
   margin-bottom: 10px;
 `;
 
-const ServiceText = styled.p`
-  font-size: 1rem;
-  color: ${theme.textLight};
-  line-height: 1.6;
+const CardTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
 `;
 
-const servicesData = [
-    { title: "Profesionales Certificados", text: "Consulta en línea con un equipo de expertos validados internacionalmente." },
-    { title: "Psiquiatría y Psicología", text: "Combinamos enfoques científicos para un tratamiento integral y efectivo." },
-    { title: "Bilingüe e Internacional", text: "Atención en tu idioma, sin barreras culturales, estés donde estés." },
-    { title: "Enfoque Humano", text: "Un espacio seguro, confidencial e integrativo diseñado para tu bienestar." }
-];
 
 function Inicio() {
+  const { t, i18n } = useTranslation();
+
+  const navLinks = [
+    { text: t('navAppointment'), to: "/appointment", icon: <FaCalendarAlt /> },
+    { text: t('navTeam'), to: "/equipo", icon: <FaUsers /> },
+    { text: t('navServices'), to: "/especialidades", icon: <FaStethoscope /> },
+    { text: t('navContact'), to: "/contacto", icon: <FaMapMarkerAlt /> }
+  ];
+
+  const specialtiesData = [
+    { title: "Medicina Interna", icon: <FaHeartbeat />, img: "/image/specialty-internal.jpg", to: "/especialidades/medicina-interna" },
+    { title: "Dermatología", icon: <FaCut />, img: "/image/specialty-dermatology.jpg", to: "/especialidades/dermatologia" },
+    { title: "Psicología", icon: <FaBrain />, img: "/image/specialty-psychology.jpg", to: "/especialidades/psicologia" },
+    { title: "Medicina Integrativa", icon: <FaPlus />, img: "/image/specialty-integrative.jpg", to: "/especialidades/medicina-integrativa" },
+  ];
+
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
+
   return (
     <Container>
+      <LanguageSwitcher>
+        <button 
+          onClick={() => changeLanguage('es')}
+          className={i18n.language === 'es' ? 'active' : ''}
+        >
+          ES
+        </button>
+        <button 
+          onClick={() => changeLanguage('en')}
+          className={i18n.language === 'en' ? 'active' : ''}
+        >
+          EN
+        </button>
+      </LanguageSwitcher>
+      
       <BannerWrapper>
         <BannerImage src="/image/banner.jpg" alt="Salud mental" />
         <BannerOverlay />
         <HeroContent>
-            <Heading>Salud mental sin fronteras</Heading>
-            <SubText>En inglés o español. Donde estés, cuando lo necesites.</SubText>
-            <CTAButton to="/especialidades">Agendar cita</CTAButton>
+          <Heading>{t('heroTitle')}</Heading>
+          <SubText>{t('heroSubtitle')}</SubText>
         </HeroContent>
+
+        <IconNavWrapper>
+          {navLinks.map(link => (
+            <IconNavLink to={link.to} key={link.text}>
+              <IconCircle>{link.icon}</IconCircle>
+              <span>{link.text}</span>
+            </IconNavLink>
+          ))}
+        </IconNavWrapper>
       </BannerWrapper>
 
-      <Section>
-        <SectionHeading>Un Cuidado Diseñado para Ti</SectionHeading>
-        <ServicesGrid>
-            {servicesData.map((service, index) => (
-                <ServiceCard key={index}>
-                    <ServiceTitle>{service.title}</ServiceTitle>
-                    <ServiceText>{service.text}</ServiceText>
-                </ServiceCard>
-            ))}
-        </ServicesGrid>
-      </Section>
+      <SpecialtiesSection>
+        <SectionTitle>{t('ourSpecialtiesTitle', 'Nuestras Especialidades')}</SectionTitle>
+        <SpecialtiesGrid>
+          {specialtiesData.map(spec => (
+            <SpecialtyCard to={spec.to} key={spec.title}>
+              <CardBackgroundImage src={spec.img} alt={spec.title} />
+              <CardOverlay />
+              <CardContent>
+                <CardIcon>{spec.icon}</CardIcon>
+                <CardTitle>{spec.title}</CardTitle>
+              </CardContent>
+            </SpecialtyCard>
+          ))}
+        </SpecialtiesGrid>
+      </SpecialtiesSection>
+      
     </Container>
   );
 }
