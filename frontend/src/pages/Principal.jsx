@@ -212,22 +212,21 @@ const CardTitle = styled.h3`
   margin: 0;
 `;
 
-
 function Inicio() {
   const { t, i18n } = useTranslation();
 
   const navLinks = [
-    { text: t('navAppointment'), to: "/appointment", icon: <FaCalendarAlt /> },
+    { text: t('navAppointment'), to: "/citas", icon: <FaCalendarAlt /> },
     { text: t('navTeam'), to: "/equipo", icon: <FaUsers /> },
     { text: t('navServices'), to: "/especialidades", icon: <FaStethoscope /> },
-    { text: t('navContact'), to: "/contacto", icon: <FaMapMarkerAlt /> }
+    { text: t('navContact'), to: "/Contact", icon: <FaMapMarkerAlt /> }
   ];
 
   const specialtiesData = [
-    { title: "Medicina Interna", icon: <FaHeartbeat />, img: "/image/specialty-internal.jpg", to: "/especialidades/medicina-interna" },
-    { title: "Dermatología", icon: <FaCut />, img: "/image/specialty-dermatology.jpg", to: "/especialidades/dermatologia" },
-    { title: "Psicología", icon: <FaBrain />, img: "/image/specialty-psychology.jpg", to: "/especialidades/psicologia" },
-    { title: "Medicina Integrativa", icon: <FaPlus />, img: "/image/specialty-integrative.jpg", to: "/especialidades/medicina-integrativa" },
+    { key: "internalMedicine", icon: <FaHeartbeat />, img: "/image/specialty-internal.jpg", to: "/especialidades/medicina-interna" },
+    { key: "dermatology", icon: <FaCut />, img: "/image/specialty-dermatology.jpg", to: "/especialidades/dermatologia" },
+    { key: "psychology", icon: <FaBrain />, img: "/image/specialty-psychology.jpg", to: "/especialidades/psicologia" },
+    { key: "integrativeMedicine", icon: <FaPlus />, img: "/image/specialty-integrative.jpg", to: "/especialidades/medicina-integrativa" },
   ];
 
   const changeLanguage = (lng) => i18n.changeLanguage(lng);
@@ -237,20 +236,20 @@ function Inicio() {
       <LanguageSwitcher>
         <button 
           onClick={() => changeLanguage('es')}
-          className={i18n.language === 'es' ? 'active' : ''}
+          className={i18n.language.startsWith('es') ? 'active' : ''}
         >
           ES
         </button>
         <button 
           onClick={() => changeLanguage('en')}
-          className={i18n.language === 'en' ? 'active' : ''}
+          className={i18n.language.startsWith('en') ? 'active' : ''}
         >
           EN
         </button>
       </LanguageSwitcher>
       
       <BannerWrapper>
-        <BannerImage src="/image/banner.jpg" alt="Salud mental" />
+        <BannerImage src="/image/banner.jpg" alt={t('heroTitle')} />
         <BannerOverlay />
         <HeroContent>
           <Heading>{t('heroTitle')}</Heading>
@@ -268,15 +267,15 @@ function Inicio() {
       </BannerWrapper>
 
       <SpecialtiesSection>
-        <SectionTitle>{t('ourSpecialtiesTitle', 'Nuestras Especialidades')}</SectionTitle>
+        <SectionTitle>{t('ourSpecialtiesTitle')}</SectionTitle>
         <SpecialtiesGrid>
           {specialtiesData.map(spec => (
-            <SpecialtyCard to={spec.to} key={spec.title}>
-              <CardBackgroundImage src={spec.img} alt={spec.title} />
+            <SpecialtyCard to={spec.to} key={spec.key}>
+              <CardBackgroundImage src={spec.img} alt={t(`specialties.${spec.key}.title`)} />
               <CardOverlay />
               <CardContent>
                 <CardIcon>{spec.icon}</CardIcon>
-                <CardTitle>{spec.title}</CardTitle>
+                <CardTitle>{t(`specialties.${spec.key}.title`)}</CardTitle>
               </CardContent>
             </SpecialtyCard>
           ))}

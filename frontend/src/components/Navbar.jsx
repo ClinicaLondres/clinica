@@ -50,9 +50,18 @@ const StyledLink = styled(Link)`
 `;
 
 const LanguageSwitcher = styled.div`
-  width: 100px;
+  min-width: 150px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 10px;
+`;
+
+const FlagIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 const LanguageSelect = styled.select`
@@ -83,6 +92,8 @@ function Navbar() {
     i18n.changeLanguage(lang);
   };
 
+  const currentLang = i18n.language.startsWith('es') ? 'es' : 'en';
+
   return (
     <Nav>
       <NavContainer>
@@ -93,15 +104,18 @@ function Navbar() {
         <NavList>
           <NavItem><StyledLink to="/">{t('navHome', 'Home')}</StyledLink></NavItem>
           <NavItem><StyledLink to="/about">{t('navAbout', 'About')}</StyledLink></NavItem>
-          <NavItem><StyledLink to="/especialidades">{t('navServices', 'Services')}</StyledLink></NavItem>
+          <NavItem><StyledLink to="/servicios">{t('navServices', 'Services')}</StyledLink></NavItem>
           <NavItem><StyledLink to="/blog">{t('navBlog', 'Blog')}</StyledLink></NavItem>
-          <NavItem><StyledLink to="/Contact">{t('navContact', 'Contact')}</StyledLink></NavItem>
+          <NavItem><StyledLink to="/contacto">{t('navContact', 'Contact')}</StyledLink></NavItem>
         </NavList>
 
-        <LanguageSwitcher>  
-          
+        <LanguageSwitcher>
+          <FlagIcon 
+            src={currentLang === 'es' ? '/image/flag_spain.png' : '/image/flag_uk.png'} 
+            alt="language flag" 
+          />
           <LanguageSelect 
-            value={i18n.language.startsWith('es') ? 'es' : 'en'} 
+            value={currentLang} 
             onChange={handleLanguageChange}
           >
             <option value="es">Español</option>

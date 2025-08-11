@@ -5,6 +5,21 @@
     "navAppointment": "Book Appointment",
     "navTeam": "Meet the Team",
     "navServices": "Our Services",
-    "navContact": "Contact"
+    "navContact": "Contact",
+    "ourSpecialtiesTitle": "Our Specialties",
+    "specialties": {
+      "internalMedicine": {
+        "title": "Internal Medicine"
+      },
+      "dermatology": {
+        "title": "Dermatology"
+      },
+      "psychology": {
+        "title": "Psychology"
+      },
+      "integrativeMedicine": {
+        "title": "Integrative Medicine"
+      }
+    }
   }
 }

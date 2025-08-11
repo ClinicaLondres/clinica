@@ -19,7 +19,7 @@ const HeroBanner = styled.div`
   background-color: ${theme.lightBlueBg};
   padding: 80px 20px 50px;
   text-align: center;
-  margin-top: 70px; /* Espacio para el Navbar fijo */
+  margin-top: 70px;
 `;
 
 const HeroTitle = styled.h1`
@@ -36,9 +36,9 @@ const SpecialtiesSection = styled.section`
 
 const SpecialtiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
 `;
 

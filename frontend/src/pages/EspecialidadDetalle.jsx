@@ -175,7 +175,7 @@ function EspecialidadDetalle() {
         <HeroContent>
           <HeroTitle>{specialty.title}</HeroTitle>
           <HeroDescription>{specialty.description}</HeroDescription>
-          <CTAButton to="/especialidades">{t('bookAppointment', 'Agendar Cita')}</CTAButton>
+          <CTAButton to="/citas">{t('bookAppointment', 'Agendar Cita')}</CTAButton>
         </HeroContent>
       </HeroSection>
 

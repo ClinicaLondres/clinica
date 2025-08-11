@@ -3,18 +3,19 @@ import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './styles/App.css';
 
-// Importa tus componentes
 import Navbar from "./components/Navbar";
 import Footer from "./components/footer.jsx";
 import LanguageModal from './components/LanguageModal'; 
 
-// Importa las páginas
 import Inicio from "./pages/Principal.jsx";
 import About from "./pages/About.jsx";
-import ServiciosPage from "./pages/ServiciosPage.jsx"; 
-import EspecialidadDetalle from "./pages/EspecialidadDetalle.jsx"; 
+import ServiciosPage from "./pages/ServiciosPage.jsx";
+import EspecialidadDetalle from "./pages/EspecialidadDetalle.jsx";
+import AppointmentPage from './pages/AppointmentPage.jsx';
 import EquipoPage from './pages/EquipoPage.jsx';
+import DoctorProfilePage from './pages/DoctorProfilePage.jsx';
 import Contact from './pages/Contact.jsx';
+import BlogPage from './pages/BlogPage.jsx';
 
 function App() {
   const { i18n } = useTranslation();
@@ -40,14 +41,15 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          {/* Rutas que ya tenías */}
           <Route path="/" element={<Inicio />} />
           <Route path="/about" element={<About />} />
-          <Route path="/equipo" element={<EquipoPage />} />
           <Route path="/especialidades" element={<ServiciosPage />} />
           <Route path="/especialidades/:especialidadId" element={<EspecialidadDetalle />} />
-          <Route path="/Contact" element={<Contact />} />
-
+          <Route path="/citas" element={<AppointmentPage />} />
+          <Route path="/equipo" element={<EquipoPage />} />
+          <Route path="/equipo/:doctorId" element={<DoctorProfilePage />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<BlogPage />} />
         </Routes>
       </main>
       <Footer />

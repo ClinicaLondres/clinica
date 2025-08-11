@@ -14,10 +14,11 @@ const Heading = styled.h1`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
+  max-width: 700px; 
+  margin: 0 auto 40px;  
 `;
-
 const Card = styled.div`
   background: white;
   border-radius: 10px;

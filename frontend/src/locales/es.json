@@ -5,6 +5,21 @@
     "navAppointment": "Agendar Cita",
     "navTeam": "Conoce al Equipo",
     "navServices": "Especialidades",
-    "navContact": "Contacto"
+    "navContact": "Contacto",
+    "ourSpecialtiesTitle": "Nuestras Especialidades",
+    "specialties": {
+      "internalMedicine": {
+        "title": "Medicina Interna"
+      },
+      "dermatology": {
+        "title": "Dermatología"
+      },
+      "psychology": {
+        "title": "Psicología"
+      },
+      "integrativeMedicine": {
+        "title": "Medicina Integrativa"
+      }
+    }
   }
 }
