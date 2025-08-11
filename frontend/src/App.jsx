@@ -14,6 +14,7 @@ import About from "./pages/About.jsx";
 import ServiciosPage from "./pages/ServiciosPage.jsx"; 
 import EspecialidadDetalle from "./pages/EspecialidadDetalle.jsx"; 
 import EquipoPage from './pages/EquipoPage.jsx';
+import Contact from './pages/Contact.jsx';
 
 function App() {
   const { i18n } = useTranslation();
@@ -45,6 +46,7 @@ function App() {
           <Route path="/equipo" element={<EquipoPage />} />
           <Route path="/especialidades" element={<ServiciosPage />} />
           <Route path="/especialidades/:especialidadId" element={<EspecialidadDetalle />} />
+          <Route path="/Contact" element={<Contact />} />
 
         </Routes>
       </main>
