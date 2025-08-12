@@ -34,6 +34,15 @@
       "email": "contact@clinic.com",
       "phone": "+44 20 7946 0000",
       "copyright": "Online Clinic"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "loginButton": "Login",
+      "forgotPassword": "Forgot your password?",
+      "noAccount": "Don't have an account?",
+      "registerHere": "Register here"
     }
   }
 }

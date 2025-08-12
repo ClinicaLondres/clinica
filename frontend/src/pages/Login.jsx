@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import logo from "/image/logo.png";
+import { useTranslation } from "react-i18next";
 
 
 const LoginContainer = styled.div`
@@ -106,18 +107,22 @@ const HelpText = styled.div`
 `;
 
 function Contact() {
+  const { t, i18n } = useTranslation();
   return (
     <LoginContainer>
       <Logo><img src={logo} alt="Logo" /></Logo>
-      <Title>Bienvenido</Title>
+      <Title>{t('login.title')}</Title>
       <FormSection>
         <form>
-          <Input type="email" placeholder="Correo electrónico" required />
-          <Input type="password" placeholder="Contraseña" required />
-          <Button type="submit">Iniciar Sesión</Button>
+          <Input type="email" placeholder={t('login.email')} required />
+          <Input type="password" placeholder={t('login.password')} required />
+          <Button type="submit">{t('login.loginButton')}</Button>
         </form>
         <HelpText>
-          <a href="#">¿Olvidaste tu contraseña?</a>
+          <a href="#">{t('login.noAccount')}</a>
+        </HelpText>
+        <HelpText>
+          <a href="#">{t('login.forgotPassword')}</a>
         </HelpText>
       </FormSection>
     </LoginContainer>

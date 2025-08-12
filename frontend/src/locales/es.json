@@ -34,6 +34,15 @@
       "email": "contacto@clinica.com",
       "phone": "+44 20 7946 0000",
       "copyright": "Clínica Online"
+      },
+      "login": {
+        "title": "Iniciar Sesión",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "loginButton": "Iniciar Sesión",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "noAccount": "¿No tienes una cuenta?",
+        "registerHere": "Regístrate aquí"
       }
   }
 }
