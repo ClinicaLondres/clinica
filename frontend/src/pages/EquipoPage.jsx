@@ -68,11 +68,24 @@ const DoctorCard = styled(Link)`
   }
 `;
 
+const DoctorImageWrapper = styled.div`
+  width: 100%;
+  height: 300px; /* mismo alto fijo */
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 const DoctorImage = styled.img`
   width: 100%;
-  height: 280px;
+  height: 100%;
   object-fit: cover;
+  object-position: top center;
+  background-color: #f0f0f0;
 `;
+
 
 const DoctorInfo = styled.div`
   padding: 20px;
@@ -110,7 +123,10 @@ function EquipoPage() {
           <DoctorsGrid>
             {doctorsBySpecialty[specialty].map(doctor => (
               <DoctorCard to={`/equipo/${doctor.id}`} key={doctor.id}>
+              <DoctorImageWrapper>
                 <DoctorImage src={doctor.img} alt={doctor.name} />
+              </DoctorImageWrapper>
+                
                 <DoctorInfo>
                   <DoctorName>{doctor.name}</DoctorName>
                   <DoctorSpecialty>{doctor.specialty}</DoctorSpecialty>

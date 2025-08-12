@@ -104,9 +104,9 @@ function Navbar() {
         <NavList>
           <NavItem><StyledLink to="/">{t('navHome', 'Home')}</StyledLink></NavItem>
           <NavItem><StyledLink to="/about">{t('navAbout', 'About')}</StyledLink></NavItem>
-          <NavItem><StyledLink to="/servicios">{t('navServices', 'Services')}</StyledLink></NavItem>
+          <NavItem><StyledLink to="/especialidades">{t('navServices', 'Services')}</StyledLink></NavItem>
           <NavItem><StyledLink to="/blog">{t('navBlog', 'Blog')}</StyledLink></NavItem>
-          <NavItem><StyledLink to="/contacto">{t('navContact', 'Contact')}</StyledLink></NavItem>
+          <NavItem><StyledLink to="/Contact">{t('navContact', 'Contact')}</StyledLink></NavItem>
         </NavList>
 
         <LanguageSwitcher>
