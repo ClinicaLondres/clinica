@@ -6,6 +6,9 @@
     "navTeam": "Conoce al Equipo",
     "navServices": "Especialidades",
     "navContact": "Contacto",
+    "navAbout": "Nosotros",
+    "navHome": "Inicio",
+    "navLogin": "Iniciar Sesión",
     "ourSpecialtiesTitle": "Nuestras Especialidades",
     "specialties": {
       "internalMedicine": {
@@ -20,6 +23,17 @@
       "integrativeMedicine": {
         "title": "Medicina Integrativa"
       }
-    }
+    },
+    "footer": {
+      "MiniInfo": "Tu salud mental, donde estés.",
+      "linksTitle": "Enlaces útiles",
+      "linkHome": "Inicio",
+      "linkAbout": "Nosotros",
+      "linkContact": "Contacto",
+      "contactTitle": "Contacto",
+      "email": "contacto@clinica.com",
+      "phone": "+44 20 7946 0000",
+      "copyright": "Clínica Online"
+      }
   }
 }

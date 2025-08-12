@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 import logo from "/image/logo.png";
+
 
 const FooterContainer = styled.footer`
   background: linear-gradient(135deg, #002244, #003366);
@@ -122,6 +124,7 @@ const MiniInfo = styled.p`
 
 
 function Footer() {
+  const { t } = useTranslation();
   return (
     <FooterContainer>
       <FooterContent>
@@ -130,20 +133,20 @@ function Footer() {
             <Logo src={logo} alt="Clínica Online Logo" />
             <LogoTitle>Clínica Online</LogoTitle>
             </LogoContainer>
-          <MiniInfo>Tu salud mental, donde estés.</MiniInfo>
+          <MiniInfo>{t('footer.MiniInfo')}</MiniInfo>
         </Column>
 
         <Column>
-          <Title>Enlaces útiles</Title>
-          <FooterLink to="/">Inicio</FooterLink>
-          <FooterLink to="/about">Nosotros</FooterLink>
-          <FooterLink to="/contact">Contacto</FooterLink>
+          <Title>{t('footer.linksTitle')}</Title>
+          <FooterLink to="/">{t('footer.linkHome')}</FooterLink>
+          <FooterLink to="/about">{t('footer.linkAbout')}</FooterLink>
+          <FooterLink to="/contact">{t('footer.linkContact')}</FooterLink>
         </Column>
 
         <Column>
-          <Title>Contacto</Title>
-          <ContactItem><FaEnvelope /> contacto@clinica.com</ContactItem>
-          <ContactItem><FaPhoneAlt /> +44 20 7946 0000</ContactItem>
+          <Title>{t('footer.contactTitle')}</Title>
+          <ContactItem><FaEnvelope /> {t('footer.email')}</ContactItem>
+          <ContactItem><FaPhoneAlt /> {t('footer.phone')}</ContactItem>
 
           <SocialIcons>
             <a href="#"><FaFacebook /></a>
@@ -154,7 +157,7 @@ function Footer() {
       </FooterContent>
 
       <Copyright>
-        &copy; {new Date().getFullYear()} Clínica Online. 
+        &copy; {new Date().getFullYear()} {t('footer.copyright')}
       </Copyright>
     </FooterContainer>
   );

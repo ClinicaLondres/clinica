@@ -6,6 +6,9 @@
     "navTeam": "Meet the Team",
     "navServices": "Our Services",
     "navContact": "Contact",
+    "navAbout": "About",
+    "navHome": "Home",
+    "navLogin": "Login",
     "ourSpecialtiesTitle": "Our Specialties",
     "specialties": {
       "internalMedicine": {
@@ -20,6 +23,18 @@
       "integrativeMedicine": {
         "title": "Integrative Medicine"
       }
+    },
+      "footer": {
+      "MiniInfo": "Your mental health, wherever you are.",
+      "linksTitle": "Useful Links",
+      "linkHome": "Home",
+      "linkAbout": "About Us",
+      "linkContact": "Contact",
+      "contactTitle": "Contact",
+      "email": "contact@clinic.com",
+      "phone": "+44 20 7946 0000",
+      "copyright": "Online Clinic"
     }
   }
 }
+
