@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { FaCalendarAlt, FaUsers, FaStethoscope, FaMapMarkerAlt, FaHeartbeat, FaBrain, FaPlus, FaCut } from 'react-icons/fa';
+import { FaCalendarAlt, FaUsers, FaStethoscope, FaMapMarkerAlt, FaHeartbeat, FaBrain, FaPlus, FaCut, FaQuoteLeft } from 'react-icons/fa';
 
 const theme = {
-  primary: '#005792',
-  secondary: '#00a8a8',
-  textDark: '#2c3e50',
-  textLight: '#7f8c8d',
-  background: '#f8f9fa',
+  primary: '#2E7D32',
+  secondary: '#1E88E5',
+  textDark: '#37474F',
+  textLight: '#607D8B',
+  background: '#F5F5F5',
   white: '#ffffff',
+  lightGreenBg: '#E8F5E9',
 };
 
 const Container = styled.div`
@@ -132,9 +133,8 @@ const LanguageSwitcher = styled.div`
     }
 `;
 
-const SpecialtiesSection = styled.section`
+const Section = styled.section`
   padding: 80px 20px;
-  background-color: ${theme.white};
 `;
 
 const SectionTitle = styled.h2`
@@ -212,6 +212,43 @@ const CardTitle = styled.h3`
   margin: 0;
 `;
 
+const TestimonialsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const TestimonialCard = styled.div`
+  background: ${theme.white};
+  border-left: 5px solid ${theme.primary};
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+`;
+
+const QuoteIcon = styled(FaQuoteLeft)`
+  color: ${theme.primary};
+  font-size: 2rem;
+  margin-bottom: 15px;
+`;
+
+const TestimonialText = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: ${theme.textLight};
+  font-style: italic;
+  margin: 0 0 20px;
+`;
+
+const TestimonialAuthor = styled.p`
+  font-weight: 600;
+  color: ${theme.textDark};
+  text-align: right;
+  margin: 0;
+`;
+
 function Inicio() {
   const { t, i18n } = useTranslation();
 
@@ -227,6 +264,12 @@ function Inicio() {
     { key: "dermatology", icon: <FaCut />, img: "/image/specialty-dermatology.jpg", to: "/especialidades/dermatologia" },
     { key: "psychology", icon: <FaBrain />, img: "/image/specialty-psychology.jpg", to: "/especialidades/psicologia" },
     { key: "integrativeMedicine", icon: <FaPlus />, img: "/image/specialty-integrative.jpg", to: "/especialidades/medicina-integrativa" },
+  ];
+
+  const testimonialsData = [
+    { key: 'testimonial1' },
+    { key: 'testimonial2' },
+    { key: 'testimonial3' },
   ];
 
   const changeLanguage = (lng) => i18n.changeLanguage(lng);
@@ -266,7 +309,7 @@ function Inicio() {
         </IconNavWrapper>
       </BannerWrapper>
 
-      <SpecialtiesSection>
+      <Section style={{ backgroundColor: theme.white }}>
         <SectionTitle>{t('ourSpecialtiesTitle')}</SectionTitle>
         <SpecialtiesGrid>
           {specialtiesData.map(spec => (
@@ -280,7 +323,20 @@ function Inicio() {
             </SpecialtyCard>
           ))}
         </SpecialtiesGrid>
-      </SpecialtiesSection>
+      </Section>
+
+      <Section>
+      <SectionTitle>{t('testimonialsTitle')}</SectionTitle>
+        <TestimonialsGrid>
+          {testimonialsData.map(testimonial => (
+            <TestimonialCard key={testimonial.key}>
+              <QuoteIcon />
+              <TestimonialText>{t(`testimonials.${testimonial.key}.text`)}</TestimonialText>
+              <TestimonialAuthor>- {t(`testimonials.${testimonial.key}.author`)}</TestimonialAuthor>
+            </TestimonialCard>
+          ))}
+        </TestimonialsGrid>
+      </Section>
       
     </Container>
   );

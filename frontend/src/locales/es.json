@@ -34,15 +34,34 @@
       "email": "contacto@clinica.com",
       "phone": "+44 20 7946 0000",
       "copyright": "Clínica Online"
+    },
+    "login": {
+      "title": "Iniciar Sesión",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "loginButton": "Iniciar Sesión",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "noAccount": "¿No tienes una cuenta?",
+      "registerHere": "Regístrate aquí"
+    },
+    "testimonialsTitle": "Opiniones Más Relevantes",
+    "testimonials": {
+      "testimonial1": {
+        "text": "La atención online fue increíblemente cómoda y profesional. Finalmente encontré un espacio seguro para hablar. ¡Totalmente recomendado!",
+        "author": "Ana G., Paciente de Psicología"
       },
-      "login": {
-        "title": "Iniciar Sesión",
-        "email": "Correo electrónico",
-        "password": "Contraseña",
-        "loginButton": "Iniciar Sesión",
-        "forgotPassword": "¿Olvidaste tu contraseña?",
-        "noAccount": "¿No tienes una cuenta?",
-        "registerHere": "Regístrate aquí"
+      "testimonial2": {
+        "text": "Mi piel nunca se ha visto mejor. La dermatóloga fue muy atenta y el tratamiento personalizado funcionó de maravilla.",
+        "author": "Marcos P., Paciente de Dermatología"
+      },
+      "testimonial3": {
+        "text": "Finalmente, un doctor que se tomó el tiempo de escuchar y conectar los puntos. El chequeo completo fue exhaustivo y muy revelador.",
+        "author": "Laura B., Paciente de Medicina Interna"
+      },
+      "testimonial4": {
+        "text": "El enfoque integrativo me ayudó a entender la conexión entre mi cuerpo y mi mente. Ha sido un cambio de vida.",
+        "author": "Carla R., Paciente de Medicina Integrativa"
       }
+    }
   }
 }

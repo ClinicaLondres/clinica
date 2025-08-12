@@ -24,7 +24,7 @@
         "title": "Integrative Medicine"
       }
     },
-      "footer": {
+    "footer": {
       "MiniInfo": "Your mental health, wherever you are.",
       "linksTitle": "Useful Links",
       "linkHome": "Home",
@@ -43,7 +43,25 @@
       "forgotPassword": "Forgot your password?",
       "noAccount": "Don't have an account?",
       "registerHere": "Register here"
+    },
+    "testimonialsTitle": "Most Relevant Reviews",
+    "testimonials": {
+      "testimonial1": {
+        "text": "The online care was incredibly comfortable and professional. I finally found a safe space to talk. Totally recommended!",
+        "author": "Ana G., Psychology Patient"
+      },
+      "testimonial2": {
+        "text": "My skin has never looked better. The dermatologist was very attentive and the personalized treatment worked wonders.",
+        "author": "Mark P., Dermatology Patient"
+      },
+      "testimonial3": {
+        "text": "Finally, a doctor who took the time to listen and connect the dots. The comprehensive check-up was thorough and very insightful.",
+        "author": "Laura B., Internal Medicine Patient"
+      },
+      "testimonial4": {
+        "text": "The integrative approach helped me understand the connection between my body and my mind. It has been a life-changer.",
+        "author": "Carla R., Integrative Medicine Patient"
+      }
     }
   }
 }
-
