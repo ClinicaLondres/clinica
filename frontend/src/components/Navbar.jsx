@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FaUser } from "react-icons/fa";
 
 const Nav = styled.nav`
   background-color: #ffffff;
@@ -83,6 +84,30 @@ const LanguageSelect = styled.select`
   background-size: .65em auto;
 `;
 
+const LoginButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #003366;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border: 1px solid #003366;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: #003366;
+    color: #fff;
+  }
+`;
+
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ajusta este valor para separarlos más o menos */
+`;
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -109,6 +134,7 @@ function Navbar() {
           <NavItem><StyledLink to="/Contact">{t('navContact', 'Contact')}</StyledLink></NavItem>
         </NavList>
 
+        <RightSection>
         <LanguageSwitcher>
           <FlagIcon 
             src={currentLang === 'es' ? '/image/flag_spain.png' : '/image/flag_uk.png'} 
@@ -122,6 +148,11 @@ function Navbar() {
             <option value="en">English</option>
           </LanguageSelect>
         </LanguageSwitcher>
+                <LoginButton to="/login">
+          <FaUser />
+          {t('navLogin', 'Login')}
+        </LoginButton>
+        </RightSection>
       </NavContainer>
     </Nav>
   );

@@ -16,6 +16,7 @@ import EquipoPage from './pages/EquipoPage.jsx';
 import DoctorProfilePage from './pages/DoctorProfilePage.jsx';
 import Contact from './pages/Contact.jsx';
 import BlogPage from './pages/BlogPage.jsx';
+import Login from './pages/Login.jsx'; 
 
 function App() {
   const { i18n } = useTranslation();
@@ -50,6 +51,7 @@ function App() {
           <Route path="/equipo/:doctorId" element={<DoctorProfilePage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />
